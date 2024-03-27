@@ -1,0 +1,63 @@
+# Sınıf oluşturma
+Student <- setClass("Student",
+                    slots = c(name = "character", grades = "numeric"),
+                    prototype = list(name = "", grades = numeric()))
+
+# Fonksiyon oluşturma
+calculate_average_grade <- function(student_object) {
+  mean(student_object@grades)
+}
+
+# Obje oluşturma
+student1 <- new("Student", name = "John", grades = c(85, 90, 92, 78, 88))
+
+# Ekrana yazı yazdırma
+cat("Öğrenci Adı:", student1@name, "\n")
+cat("Not Ortalaması:", calculate_average_grade(student1), "\n")
+
+# Paket indirme
+install.packages("DALEX")
+library(DALEX)
+
+# Veri seti yükleme
+data(apartments)
+
+# Filter komutu & mutate komutu
+filtered_data <- apartments %>%
+  filter(district == "District A") %>%
+  mutate(price_per_1000 = m2.price / 1000)
+
+# İndirilen veri setinin ilk satırlarını görme
+head(apartments)
+
+# Select komutu & mutate komutu
+filtered_data <- apartments %>%
+  select(district, m2.price) %>%
+  mutate(price_per_1000 = m2.price / 1000)
+
+# Transmute komutu
+transmuted_data <- apartments %>%
+  transmute(district, price_per_1000 = m2.price / 1000)
+
+# Rastgele veri seti oluşturma
+data <- data.frame(
+  Name = c("John", "Alice", "Bob", "Emily", "Michael"),
+  Age = c(25, 30, 35, 40, 45),
+  Gender = c("Male", "Female", "Male", "Female", "Male"),
+  Score = c(85, 90, 75, 80, 95)
+)
+
+# Veri setini ekranda gösterme
+View(data)
+
+# Veri setinin boyutunu görme
+dim(data)
+
+# Veri setinin toplam satır sayısını görme
+nrow(data)
+
+# Veri setinin toplam sütun sayısını görme
+ncol(data)
+
+
+

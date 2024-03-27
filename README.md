@@ -1,1 +1,1 @@
-# B-L254_VER-_MADENC-L-
+# BİL254_VERİ_MADENCİLİĞİ
